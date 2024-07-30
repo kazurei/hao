@@ -31,12 +31,17 @@ def load_data():
 words_df = load_data()
  
 # 正解数と不正解数のカウンターをセッション状態で初期化
-if 'correct_answers' not in st.session_state:
+if 'corsrect_answer' not in st.session_state:
     st.session_state.correct_answers = 0
  
 if 'incorrect_answers' not in st.session_state:
     st.session_state.incorrect_answers = 0
- 
+if 5 < st.session_state.corsrect_answer <10 :
+    m=5
+elif st.session_state.corsrect_answer >=10 :
+    m=7
+else :
+    m=2
 ti = st.number_input('制限時間を入力してくださ（0~60）', min_value=1, max_value=60, value=10, step=1)
  
 # ガチャ機能
@@ -49,7 +54,7 @@ if st.button('ガチャを引く！'):
     selected_word = subset_df.sample().iloc[0]
    
     # クイズ用の選択肢を生成
-    other_words = words_df[words_df['問題'] != selected_word['問題']].sample(2)
+    other_words = words_df[words_df['問題'] != selected_word['問題']].sample((m))
     choices = other_words['回答'].tolist() + [selected_word['回答']]
     np.random.shuffle(choices)
    
@@ -80,10 +85,10 @@ if 'selected_word' in st.session_state:
            
             # タイマーを終了する
             st.session_state.timer_active = False
-           
+
             # 正解不正解にかかわらず正解数または不正解数を増やす
             if quiz_answer == st.session_state.correct_answer:
-                st.session_state.correct_answers += 1
+                st.sessio_state.correct_answers += 1
                 st.success("正解です！")
             else:
                 st.session_state.incorrect_answers += 1
@@ -150,4 +155,3 @@ if st.button('正解数と不正解数をリセット'):
     st.session_state.correct_answers = 0
     st.session_state.incorrect_answers = 0
     st.text('もう一度押して下さい')
-    
