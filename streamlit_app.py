@@ -8,8 +8,8 @@ st.set_page_config(page_title="歴史問題")
 
 # タイトルと説明
 st.title('歴史問題')
-st.write('歴史をランダムに表示して、勉強をサポートします！')
-st.write('がんばってください')
+st.write('難しいお')
+st.write('君にはむりだお')
 
 # CSSを適用して背景色を設定
 st.write(
