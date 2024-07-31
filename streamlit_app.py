@@ -233,13 +233,13 @@ coordinates = {
     
 }
 
-icon_url = 'https://www.city.itoman.lg.jp/uploaded/image/2005.jpg'  # この行を実際のURLに置き換える
+icon_url = 'https://www.city.itoman.lg.jp/uploaded/image/2005.jpg'
 
 # Foliumマップオブジェクトを作成
 m = folium.Map(location=[33.2252, 131.6726], zoom_start=12)
 
 # カスタムアイコンを設定
-icon = folium.CustomIcon(icon_url, icon_size=(30, 30))
+icon = folium.CustomIcon(icon_url, icon_size=(50, 50))  # 画像の実際のサイズに合わせて適宜調整
 
 # 各場所にマーカーを追加（カスタムアイコンを使用）
 for location, coord in coordinates.items():
