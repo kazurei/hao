@@ -233,25 +233,7 @@ coordinates = {
     
 }
 
-# カスタムアイコンのURLを指定
-
-icon_url = 'https://example.com/custom-icon.png'  # この行を実際のURLに置き換える
-
-# Foliumマップオブジェクトを作成
-m = folium.Map(location=[33.2252, 131.6726], zoom_start=12)
-
-# カスタムアイコンを設定
-icon = folium.CustomIcon(icon_url, icon_size=(30, 30))
-
-# 各場所にマーカーを追加（カスタムアイコンを使用）
-for location, coord in coordinates.items():
-    folium.Marker(location=coord, popup=location, icon=icon).add_to(m)
-
-# FoliumマップをHTMLとして取得
-map_html = m._repr_html_()
-
-# Streamlitでマップを表示
-st.components.v1.html(map_html, height=500, width=700) 
+icon_url = 'https://www.city.itoman.lg.jp/uploaded/image/2005.jpg'  # この行を実際のURLに置き換える
 
 # Foliumマップオブジェクトを作成
 m = folium.Map(location=[33.2252, 131.6726], zoom_start=12)
