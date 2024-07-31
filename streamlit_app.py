@@ -251,7 +251,7 @@ for location, coord in coordinates.items():
 map_html = m._repr_html_()
 
 # Streamlitでマップを表示
-st.components.v1.html(map_html, height=500, width=700)'  
+st.components.v1.html(map_html, height=500, width=700) 
 
 # Foliumマップオブジェクトを作成
 m = folium.Map(location=[33.2252, 131.6726], zoom_start=12)
